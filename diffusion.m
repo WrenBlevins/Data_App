@@ -23,7 +23,7 @@ else
     for ii = 1:nmax
         u = u + c0(ii).*besselj(0,j0(ii)/A.*R).*exp(-(j0(ii)/A)^2*D.*T);
     end
-    u = (C-u).*exp(-R.^2/(2*sigma^2)).*r...
+    u = (C-u).*exp(-R.^2/(2*sigma^2)).*R...
         *(-1/(sigma^2*(exp(-rlim^2/(2*sigma^2)) - 1)));
     out = trapz(r,u,2);
 end
