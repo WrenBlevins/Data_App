@@ -33,7 +33,7 @@ classdef FTIRexperiment
             end
         end
         function obj = timeAxis(obj,varargin)
-            if nargin == 0
+            if nargin == 1
                 filenames = uigetfile({'*.spa','Thermo Spectrum (*.spa)'}, ...
                     'MultiSelect','on','Select Spectra Files...');
             elseif nargin == 4

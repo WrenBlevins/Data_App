@@ -44,6 +44,7 @@ classdef (Abstract) diffusion_function
         spec; %a spectrum just for testing
         pfit; %ending point (vector)
         err; %resulting error
+        fitResult; %output structure for the fit result
         
         % from bounded version
         lb; %lower bounds
@@ -55,6 +56,7 @@ classdef (Abstract) diffusion_function
     
     methods (Abstract)
         calcCurve;
+        fitFunction;
     end
     methods
         function obj = diffusion_function(options)
@@ -71,8 +73,9 @@ classdef (Abstract) diffusion_function
                 obj = obj.makeParamStruct;
                 obj.freeParamNames = obj.freeFitParamNames;
                 obj.p0 = obj.freeFitParamInitialValues;
-                
-             
+                obj.lb = obj.freeFitParamLowerBounds;
+                obj.ub = obj.freeFitParamUpperBounds;
+                             
             end
         end
         
